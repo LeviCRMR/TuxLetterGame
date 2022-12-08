@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Le plateau est la pièce de jeu, avec une largeur,hauteur et profondeur ainsi que des textures indépendantes pour chaque mur
+
+-->
+
+
+<room:plateau xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:room="http://myGame/tux"
+         xsi:schemaLocation="http://myGame/tux ../xsd/plateau.xsd">
+    <room:dimensions>
+        <room:height>60</room:height>
+        <room:width>100</room:width>
+        <room:depth>100</room:depth>
+    </room:dimensions>
+    <room:mapping>
+        <room:textureBottom>textures/floor/grass2.png</room:textureBottom>
+        <room:textureEast>textures/skybox/interstellar/east.png</room:textureEast>
+        <room:textureWest>textures/skybox/interstellar/west.png</room:textureWest>
+        <room:textureNorth>textures/skybox/interstellar/north.png</room:textureNorth>     
+    </room:mapping>
+    <room:pion>models/fox/fox.png</room:pion>
+</room:plateau>

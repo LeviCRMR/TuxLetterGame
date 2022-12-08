@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Le menuRoom est la partie affichage du menu : fond noir et taille choisie 
+
+-->
+
+<room:plateau xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:room="http://myGame/tux"
+         xsi:schemaLocation="http://myGame/tux ../xsd/plateau.xsd">
+    <room:dimensions>
+        <room:height>60</room:height>
+        <room:width>100</room:width>
+        <room:depth>100</room:depth>
+    </room:dimensions>
+    <room:mapping>
+        <room:textureBottom>textures/black.png</room:textureBottom>
+        <room:textureEast>textures/black.png</room:textureEast>
+        <room:textureWest>textures/black.png</room:textureWest>
+        <room:textureNorth>textures/black.png</room:textureNorth>     
+    </room:mapping>
+</room:plateau>
+

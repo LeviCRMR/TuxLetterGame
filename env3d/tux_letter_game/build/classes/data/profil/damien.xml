@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<prof:profil xmlns:prof="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://myGame/tux ../xsd/profil.xsd">
+    <prof:nom>damien</prof:nom>
+    <prof:avatar>damien.png</prof:avatar>
+    <prof:anniversaire>2000-02-03</prof:anniversaire>
+    <prof:parties>
+        <prof:partie date="2022-11-23" trouvé="100%">
+            <prof:temps>4</prof:temps>
+            <prof:niveau valeur="3">
+                <prof:mot>husky</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="2022-11-23" trouvé="100%">
+            <prof:temps>17</prof:temps>
+            <prof:niveau valeur="1">
+                <prof:mot>chien</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+    </prof:parties>
+</prof:profil>

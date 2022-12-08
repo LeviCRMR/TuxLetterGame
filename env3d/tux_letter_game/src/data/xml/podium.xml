@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pod:podium xmlns:pod="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <pod:joueur>
+        <pod:nom>jean</pod:nom>
+        <pod:date>05/12/2022</pod:date>
+        <pod:mot>tourterelle</pod:mot>
+        <pod:niveau>5</pod:niveau>
+        <pod:temps>5</pod:temps>
+        <pod:score>100</pod:score>
+    </pod:joueur>
+    <pod:joueur>
+        <pod:nom>damien</pod:nom>
+        <pod:date>23/11/2022</pod:date>
+        <pod:mot>husky</pod:mot>
+        <pod:niveau>3</pod:niveau>
+        <pod:temps>4</pod:temps>
+        <pod:score>75</pod:score>
+    </pod:joueur>
+    <pod:joueur>
+        <pod:nom>levi</pod:nom>
+        <pod:date>04/12/2022</pod:date>
+        <pod:mot>anaconda</pod:mot>
+        <pod:niveau>4</pod:niveau>
+        <pod:temps>8</pod:temps>
+        <pod:score>50</pod:score>
+    </pod:joueur>
+    <pod:joueur>
+        <pod:nom>alice</pod:nom>
+        <pod:date>05/12/2022</pod:date>
+        <pod:mot>souris</pod:mot>
+        <pod:niveau>1</pod:niveau>
+        <pod:temps>12</pod:temps>
+        <pod:score>8</pod:score>
+    </pod:joueur>
+    <pod:joueur>
+        <pod:nom>martine</pod:nom>
+        <pod:date>04/10/2022</pod:date>
+        <pod:mot>mangouste</pod:mot>
+        <pod:niveau>5</pod:niveau>
+        <pod:temps>59</pod:temps>
+        <pod:score>8</pod:score>
+    </pod:joueur>
+</pod:podium>

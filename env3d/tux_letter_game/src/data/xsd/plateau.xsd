@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Schéma contraignant le plateau (dimensions acceptables, mapping chemin de fichier
+
+-->
+
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tux="http://myGame/tux"
+           targetNamespace="http://myGame/tux"
+           elementFormDefault="qualified">
+    
+    <xs:include schemaLocation="profil.xsd"/>
+
+    <!-- Elément racine de la room du jeu Tux -->
+    <xs:element name="plateau" type="tux:Plateau"/>
+    
+    <!-- Un plateau contient 3 éléments:
+    - dimensions qui contient en sous élément la largeur, longueur et profondeur
+    - mapping qui contient en sous élément les textures que l'on va afficher au sol et sur les cotés
+    - pion qui contient l'url de l'image du personnage qu'on incarne -->
+    <xs:complexType name="Plateau">
+        <xs:sequence>
+            <xs:element name="dimensions" type="tux:Dimensions" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="mapping" type="tux:Mapping" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="pion" type="tux:Image" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Contient 3 entiers restreints:
+    - height
+    - width
+    - depth             --> 
+    <xs:complexType name="Dimensions">
+        <xs:sequence>
+            <xs:element name="height" type="tux:RestrDimensions" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="width" type="tux:RestrDimensions" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="depth" type="tux:RestrDimensions" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Contient 4 éléments qui sont des chemins d'accès vers les textures à mettre au sol et sur les cotés:
+    - textureBottom
+    - textureEast
+    - textureWest
+    - textureNorth     -->        
+    <xs:complexType name="Mapping">
+        <xs:sequence>
+            <xs:element name="textureBottom" type="tux:Image" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="textureEast" type="tux:Image" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="textureWest" type="tux:Image" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="textureNorth" type="tux:Image" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="RestrDimensions">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="30"/>
+            <xs:maxInclusive value="150"/>
+        </xs:restriction>
+    </xs:simpleType>    
+</xs:schema>

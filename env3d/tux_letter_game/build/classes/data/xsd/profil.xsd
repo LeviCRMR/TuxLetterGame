@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Schéma contraignant le profil (nom, avatar, anniversaire, parties) 
+
+-->
+
+<xsd:schema
+    version="1.0" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tux="http://myGame/tux"
+    targetNamespace="http://myGame/tux"
+    elementFormDefault="qualified">
+   
+    <xsd:include schemaLocation="dico.xsd"/>
+        
+    <!-- Element racine d'un profil joueur Tux (profil: type Profil) -->
+    <xsd:element name="profil" type="tux:Profil"/>
+    
+    <!-- Définition du type Profil qui contient 4 éléments:
+    - nom (type string): le nom du joueur. 
+    - avatar (type string): le chemin d'accès (si pas dans le même dossier) + le nom du image
+    pour représenter l'avatar du joueur. 
+    - anniversaire (type date, format prédéfinie yyyy-mm-dd): la date d'anniversaire du joueur 
+    - parties (type Parties): regroupe les parties effectuées par le joueur.-->
+    <xsd:complexType name="Profil">
+        <xsd:sequence>
+            <xsd:element name="nom" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="avatar" type="tux:Image" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="anniversaire" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="parties" type="tux:Parties" minOccurs="1" maxOccurs="1"/>                        
+        </xsd:sequence>      
+    </xsd:complexType>
+    
+    <!-- Restriction sur le type image. Préfixe autorisé pour une image -> {png, jpeg, tiff, jpg}.  
+    Format: cheminAccès/nomImage.préfixe | nomImage.préfixe -->
+    <xsd:simpleType name="Image">
+        <xsd:restriction base="xsd:string">
+            <!-- 0 ou plusieurs occurence de "cheminVersFichier/" ou ../ pour remonter dans l'arborescence + "nomImage.(png ou jpeg ou tiff ou jpg)" 
+            On accepte pas l'écriture ou on commence par indiquer le répertoire courant (autrement dit interdit de commencer par './' 
+            Accepte les noms de repertoires du type je-suis-un-repertoire ou je_suis_un_repertoire, les accents à,é et è et les lettres minuscules
+            et majuscules. Il en va de même pour le nom du fichier image -->
+            <xsd:pattern value="([a-zA-Zàéè]([a-zA-Zàéè0-9]||-||_)*/||../)*[a-zA-Zàéè]([a-zA-Zàéè0-9]||-||_)*.(png|jpeg|tiff|jpg)"/> 
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Définition du type Parties qui contient un unique élément:
+    - partie (type Partie, occurence [0, infini]): contient des infos sur les parties réalisées par le joueur -->
+    <xsd:complexType name="Parties">
+        <xsd:sequence>
+            <xsd:element name="partie" type="tux:Partie" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+   
+    <!-- Définition du type Partie qui contient 2 attributs et 2 éléments:
+Attributs:
+    - date (type date, format prédéfinie yyyy-mm-dd): la date de la partie jouée.
+    - trouvé (type string): représentant le pourçentage du nombre de lettre 
+      qu'a trouvé un joueur. 
+Eléments:
+    - temps (type double, strictement positif): le temps que le joueur a mis à trouver le mot.
+    - niveau (définie dans le fichier dico.xsd): représente le niveau et le mot cherché par le joueur -->
+    <xsd:complexType name="Partie">
+        <xsd:sequence>
+            <xsd:element name="temps" type="tux:Temps" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="niveau" type="tux:ProfilNiveau" minOccurs="1" maxOccurs="1"/>            
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:date" use="required"/>
+        <xsd:attribute name="trouvé" type="tux:Trouve" use="required"/>
+    </xsd:complexType> 
+    
+     <!-- Définition du type ProfilNiveau qui contient un attribut obligatoire valeur et
+    un unique mot.-->   
+    <xsd:complexType name="ProfilNiveau">
+        <xsd:sequence>
+            <xsd:element name="mot" type="tux:Mot"  minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>  
+        <xsd:attribute name="valeur" type="tux:Valeur" use="required"/>
+    </xsd:complexType> 
+      
+    <!-- Restriction des valeurs sur le type Temps
+    Le temps max d'une partie n'est pas spécifié ici    -->
+    <xsd:simpleType name="Temps">
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Restriction des valeurs sur l'attribut trouvé.
+    Le pattern explicite l'ensemble des valeurs entière entre [0-99] suivit du caractère '%'. -->
+    <xsd:simpleType name="Trouve">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]\%|[0-9]{2}\%|100%"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
+
+

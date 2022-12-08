@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<prof:profil xmlns:prof="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://myGame/tux ../xsd/profil.xsd">
+    <prof:nom>jean</prof:nom>
+    <prof:avatar>jean.jpg</prof:avatar>
+    <prof:anniversaire>1111-11-11</prof:anniversaire>
+    <prof:parties>
+        <prof:partie date="2022-12-05" trouvé="100%">
+            <prof:temps>5</prof:temps>
+            <prof:niveau valeur="5">
+                <prof:mot>tourterelle</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="2022-12-05" trouvé="100%">
+            <prof:temps>46</prof:temps>
+            <prof:niveau valeur="1">
+                <prof:mot>vache</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="2022-12-05" trouvé="100%">
+            <prof:temps>56</prof:temps>
+            <prof:niveau valeur="2">
+                <prof:mot>aigle</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+    </prof:parties>
+</prof:profil>

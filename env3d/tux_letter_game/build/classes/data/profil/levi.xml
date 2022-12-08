@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<prof:profil xmlns:prof="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://myGame/tux ../xsd/profil.xsd">
+    <prof:nom>levi</prof:nom>
+    <prof:avatar>levi.png</prof:avatar>
+    <prof:anniversaire>2004-05-07</prof:anniversaire>
+    <prof:parties>
+        <prof:partie date="2022-11-24" trouvé="20%">
+            <prof:temps>60</prof:temps>
+            <prof:niveau valeur="1">
+                <prof:mot>loup</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="2022-11-24" trouvé="100%">
+            <prof:temps>8</prof:temps>
+            <prof:niveau valeur="1">
+                <prof:mot>loup</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="2022-11-24" trouvé="100%">
+            <prof:temps>8</prof:temps>
+            <prof:niveau valeur="5">
+                <prof:mot>pygargue</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+        <prof:partie date="04/12/2022" trouvé="100%">
+            <prof:temps>8</prof:temps>
+            <prof:niveau valeur="4">
+                <prof:mot>anaconda</prof:mot>
+            </prof:niveau>
+        </prof:partie>
+    </prof:parties>
+</prof:profil>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Ce dictionnaire est composé de 5 niveau avec dans chaque niveau des mots sur le thème des animaux 
+
+-->
+<dico:dictionnaire xmlns:dico="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://myGame/tux ../xsd/dico.xsd">
+    <dico:niveau valeur="1">
+        <dico:mot>chien</dico:mot>
+        <dico:mot>chat</dico:mot>
+        <dico:mot>lapin</dico:mot>
+        <dico:mot>souris</dico:mot>
+        <dico:mot>vache</dico:mot>
+        <dico:mot>cochon</dico:mot>
+        <dico:mot>cheval</dico:mot>
+        <dico:mot>loup</dico:mot>
+        <dico:mot>mouche</dico:mot>
+        <dico:mot>lion</dico:mot>
+    </dico:niveau>
+    <dico:niveau valeur="2">
+        <dico:mot>aigle</dico:mot>
+        <dico:mot>zebre</dico:mot>
+        <dico:mot>giraffe</dico:mot>
+        <dico:mot>gorille</dico:mot>
+        <dico:mot>canard</dico:mot>
+        <dico:mot>renard</dico:mot>
+        <dico:mot>singe</dico:mot>
+        <dico:mot>lezard</dico:mot>
+        <dico:mot>tigre</dico:mot>
+        <dico:mot>vipere</dico:mot>
+    </dico:niveau>
+    <dico:niveau valeur="3">
+        <dico:mot>elephant</dico:mot>
+        <dico:mot>fennec</dico:mot>
+        <dico:mot>gazelle</dico:mot>
+        <dico:mot>gibbon</dico:mot>
+        <dico:mot>jaguar</dico:mot>
+        <dico:mot>husky</dico:mot>
+        <dico:mot>leopard</dico:mot>
+        <dico:mot>mesange</dico:mot>
+        <dico:mot>pingouin</dico:mot>
+        <dico:mot>requin</dico:mot>
+    </dico:niveau>
+    <dico:niveau valeur="4">
+        <dico:mot>epervier</dico:mot>
+        <dico:mot>lamantin</dico:mot>
+        <dico:mot>lemming</dico:mot>
+        <dico:mot>mandrill</dico:mot>
+        <dico:mot>perruche</dico:mot>
+        <dico:mot>antilope</dico:mot>
+        <dico:mot>blaireau</dico:mot>
+        <dico:mot>anaconda</dico:mot>
+        <dico:mot>crocodile</dico:mot>
+        <dico:mot>urubu</dico:mot>
+    </dico:niveau>
+    <dico:niveau valeur="5">
+        <dico:mot>rorqual</dico:mot>
+        <dico:mot>cephalophe</dico:mot>
+        <dico:mot>cachalot</dico:mot>
+        <dico:mot>hippopotame</dico:mot>
+        <dico:mot>kangourou</dico:mot>
+        <dico:mot>hirondelle</dico:mot>
+        <dico:mot>mangouste</dico:mot>
+        <dico:mot>pygargue</dico:mot>
+        <dico:mot>rhinoceros</dico:mot>
+        <dico:mot>tourterelle</dico:mot>
+    </dico:niveau>
+</dico:dictionnaire>

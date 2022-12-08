@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!--
+@auteurs Damien TORNAMBE Levi CORMIER
+
+Schéma contraignant le dictionnaire (niveaux, mots)
+
+-->
+
+
+
+<xs:schema
+    version="1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tux="http://myGame/tux"
+    targetNamespace="http://myGame/tux"
+    elementFormDefault="qualified">
+    
+    <!-- IMPORTANT: Pour ne pas avoir d'erreur dans les transformations XSLT, il faut qu'il y ai le même nombre
+    de mots dans chaque niveau -->
+
+    <!-- Elément racine du dictionnaire Tux (dictionnaire: Type Dictionnaire).
+    Possède une clé d'unicité sur les valeurs de l'attribut valeur du Type Niveau.
+    Possède une seconde clé d'unicité sur les mots du dictionnaire. On ne tolère aucuns doublons. -->
+    <xs:element name="dictionnaire" type="tux:Dictionnaire">
+        <xs:unique name="refNiveau"> 
+            <xs:selector xpath="tux:niveau"/>
+            <xs:field xpath="@valeur"/>
+        </xs:unique>
+        <xs:unique name="refMot"> 
+            <xs:selector xpath="tux:niveau/tux:mot"/>
+            <xs:field xpath="."/>
+        </xs:unique>
+    </xs:element>
+    
+    <!-- Un dictionnaire contient un unique élément niveau (type complexe).
+    Il doit y avoir entre 1 et 5 balises niveau.
+    Penser à changer la valeur du maxOccurs si on change le nombre de niveaux possible.-->
+    <xs:complexType name="Dictionnaire">
+        <xs:sequence>
+            <xs:element name="niveau" type="tux:Niveau" minOccurs="1" maxOccurs="5">
+            </xs:element>
+        </xs:sequence>             
+    </xs:complexType> 
+    
+    <!-- Définition du type Niveau qui contient un attribut obligatoire valeur et
+    un certain nombre de mots.--> 
+    <xs:complexType name="Niveau">
+        <xs:sequence>
+            <xs:element name="mot" type="tux:Mot"  minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>  
+        <xs:attribute name="valeur" type="tux:Valeur" use="required"/>
+    </xs:complexType>    
+    
+    <!-- Restriction sur les mots possibles dans le dictionnaire.
+    On part du principe qu'il n'y a que des lettres minuscules.
+    Soit c'est un mot sans tiré de 3 lettres minimums.
+    Soit il a un tiret et il possède au moins une lettre avant et après le tiret.
+    Accents intégrés pour le moment: é à è.-->
+    <xs:simpleType name="Mot">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-zéàè]{3}([a-zéàè])*)|([a-zéàè]([a-zéàè])*\-[a-zéàè]([a-zéàè])*)"/>
+        </xs:restriction>
+    </xs:simpleType>  
+    
+    <!-- Restriction sur les valeurs possibles de l'attribut valeur (entre 1 et 5). 
+    Changer la pattern pour ajouter/enlever des niveaux. --> 
+    <xs:simpleType name="Valeur">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[1-5]"/> 
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
+

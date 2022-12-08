@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<prof:profil xmlns:prof="http://myGame/tux" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://myGame/tux ../xsd/profil.xsd">
+    <prof:nom>Bob</prof:nom>
+    <prof:avatar>bobby.jpg</prof:avatar>
+    <prof:anniversaire>1111-11-11</prof:anniversaire>
+    <prof:parties/>
+</prof:profil>
